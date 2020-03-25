@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <br/>
+  </div>
+  <nav class="navbar navbar-dark bg-success">
+    <form class="form-inline">
+
+      <input  class="form-control mr-sm-2" type="text" [(ngModel)]="search" (ngModelChange)="searchEvent($event)" placeholder="Search" aria-label="Search" [ngModelOptions]="{standalone: true}"/>
+      <button
+        class="btn btn-outline-success my-2 my-sm-0"
+        *ngIf="search"
+        (click)="searchEvent('')"
+      > Clear</button>
+
+
+    </form>
+
+    <form class="form-inline">
+      <label class="text-white" for="filterByType"> Filter by Type </label>
+      <select  class="form-control"  id="filterByType" [(ngModel)]="currentType" (ngModelChange)="onTypeSelected()" [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let type of types" [value]="type">{{ type | titlecase }}</option>
+      </select>
+    </form>
+  </nav>
+
+</div>
